@@ -5,6 +5,7 @@ const prefix = "!";
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
+const mongodb = require('./driver/mongo');
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
