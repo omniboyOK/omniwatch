@@ -1,22 +1,34 @@
 // -- Discord bot made by omniboyOK
 // -- Invitation link https://discord.com/api/oauth2/authorize?client_id=785680864704200714&permissions=8&scope=bot
-require('./driver/mongo');
+require("./driver/mongo");
 const fs = require("fs");
 const prefix = "!!";
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
+const embedMessage = new Discord.MessageEmbed().setColor("#e35cb8");
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync("./commands").filter((file) => file.endsWith(".js"));
 
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
+  const command = require(`./commands/${file}`);
+  client.commands.set(command.name, command);
 }
 
 client.on("message", function (message) {
   // si el autor del mensae es un bot, terminar
   if (message.author.bot) return;
+
+  // si se etiqueta al bot sin comandos
+  if (message.mentions.members.has("785680864704200714")) {
+    embedMessage
+      .setDescription("Utiliza el prefijo `!!` para usar mis comandos")
+      .setAuthor("Omnibot", client.user.avatarURL());
+
+    message.channel.send(embedMessage);
+    return;
+  }
+
   // si el mensaje no tiene prefijo configurado, terminar
   if (!message.content.startsWith(prefix)) return;
 
