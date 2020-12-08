@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 module.exports = {
   name: "badge",
-  description: "Embed badge!",
+  description: "Perfil de tu personaje",
+  extended: "Muestra el perfil con todas las estadisticas de tu personaje",
   async execute(message, args) {
     let user;
     try {

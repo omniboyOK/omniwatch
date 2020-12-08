@@ -1,11 +1,11 @@
 // -- Discord bot made by omniboyOK
 // -- Invitation link https://discord.com/api/oauth2/authorize?client_id=785680864704200714&permissions=8&scope=bot
+require('./driver/mongo');
 const fs = require("fs");
-const prefix = "!";
+const prefix = "!!";
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-const mongodb = require('./driver/mongo');
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
