@@ -15,7 +15,6 @@ for (const file of commandFiles) {
 }
 
 client.on("message", function (message) {
-  let channel = message.guild;
   // si el autor del mensae es un bot, terminar
   if (message.author.bot) return;
   // si el mensaje no tiene prefijo configurado, terminar
