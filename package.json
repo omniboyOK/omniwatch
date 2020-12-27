@@ -10,7 +10,9 @@
   "author": "omniboyOK",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
     "discord.js": "^12.5.1",
+    "mocha": "^8.2.1",
     "mongodb": "^3.6.3",
     "nodemon": "^2.0.6"
   }
