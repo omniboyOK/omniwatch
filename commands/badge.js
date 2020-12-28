@@ -9,9 +9,8 @@ module.exports = {
       user = await global.db
         .collection("users")
         .findOne({ id: message.author.id });
-      console.log(user);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
 
     if (!user) {
